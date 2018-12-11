@@ -8,7 +8,7 @@ npm start
 
 2、react的导入
 import React, { component } from 'react';
-import ClickCounter from './ClickCounter';
+import ClickCounter from './ClickCounter.js';
 a.Component是所有组件的基类，提供了很多组件共有的功能
 b.从同一层级目录的js文件中导入ClickCounter组件（extends了component的类）
 
