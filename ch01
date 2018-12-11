@@ -15,9 +15,14 @@ b.从同一层级目录的js文件中导入ClickCounter组件（extends了compon
 
 3、JSX(JavaScript eXtension)
 a.JSX中的“元素”不局限于HTML中的元素，可以是任何一个React组件，如ReactDOM.render(<ClickCounter />, document.getElementById('root'));作为React组件第一个字母必须大写，ClickCounter（不能写成clickCountet)
-b.JSX中使用了事件委托（event delegation）的方式处理点击事件，如<button onClick={this.onClickButton}>Clicke me</button>；无论有多少个onClick出现，都只是在DOM树上添加了一个时间处理函数，所有的点进事件都被这个事件处理函数捕获，然后分配给特定函数（onClickButton），比每个onCLick都挂载一个事件处理函数性能要高很多；因为React控制了组件的生命周期，在unmount的时候能清楚所有的事件处理函数，不会造成内存泄漏
+b.JSX中使用了事件委托（event delegation）的方式处理点击事件，如<button onClick={this.onClickButton}>Clicke me</button>；无论有多少个onClick出现，都只是在DOM树上添加了一个时间处理函数，所有的点进事件都被这个事件处理函数捕获，然后分配给特定函数（onClickButton），比每个onCLick都挂载一个事件处理函数性能要高很多；因为React控制了组件的生命周期，在unmount的时候能清楚所有的事件处理函数，不会造成内存泄
+c.JSX看起来像一个模板，但实际上被babel解析为一条条创建React组件或者HTML的语句，而且是先构建Virtual DOM
+d.Virtual DOM是对DOM树的抽象，不触及浏览器，只存在于JavaScript空间；两者对比发现差别，有变化只修改有差别的部分，而不是全部渲染
 
 
 4、React的理念
 公式： UI=render（data）
 用户只需要区分哪些属于data，哪些属于render函数，更新data后界面自然会做出相应，所以叫“响应式编程”（Reactive Programming）
+
+
+5、
