@@ -23,6 +23,3 @@ d.Virtual DOM是对DOM树的抽象，不触及浏览器，只存在于JavaScript
 4、React的理念
 公式： UI=render（data）
 用户只需要区分哪些属于data，哪些属于render函数，更新data后界面自然会做出相应，所以叫“响应式编程”（Reactive Programming）
-
-
-5、
