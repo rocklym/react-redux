@@ -2,4 +2,5 @@
 差劲的程序员操心代码，优秀的程序员操心数据结构和它们之间的关系
 
 2、React组件的数据
-a.prop: 对外接口
+### prop: 对外接口
+a.当prop的类型不是string时，在JSX中必须用{}把prop值包住， 如 <SampleButton id="sample" borderWidth={2} onClick={onButtonClick} sytle={{color: "red"}}
