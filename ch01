@@ -2,8 +2,14 @@
 npm install --global create-react-app
 create-react-app react-ch01
 
+
 2、react的导入
 import React, { component } from 'react';
 import ClickCounter from './ClickCounter';
 a.Component是所有组件的基类，提供了很多组件共有的功能
-b.从同一层级目录的js文件中导入ClickCounter组件
+b.从同一层级目录的js文件中导入ClickCounter组件（extends了component的类）
+
+
+3、JSX(JavaScript eXtension)
+a.JSX中的“元素”不局限于HTML中的元素，可以是任何一个React组件，如ReactDOM.render(<ClickCounter />, document.getElementById('root'));作为React组件第一个字母必须大写，ClickCounter（不能写成clickCountet)
+b.JSX中使用了事件委托（event delegation）的方式处理点击事件，如<button onClick={this.onClickButton}>Clicke me</button>；无论有多少个onClick出现，都只是在DOM树上添加了一个时间处理函数，所有的点进事件都被这个事件处理函数捕获，然后分配给特定函数（onClickButton），比每个onCLick都挂载一个事件处理函数性能要高很多；因为React控制了组件的生命周期，在unmount的时候能清楚所有的事件处理函数，不会造成内存泄漏
