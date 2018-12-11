@@ -17,3 +17,4 @@ b.函数类型的prop等于父组件（import子组件的组件）交给了子�
 c.子组件在constructor中一定要super（props）来调用父类React.Component的构造函数，不然类实例的所有成员函数就无法通过this.props访问父组件传递过来的props值
 d.ES6方法创造的React组件类不会自动绑定this到当前实例对象，需手动 this.onClickIncrementButton = this.onClickIncrementButton.bind(this);
 e.析构赋值（destructuring assignment）: const {caption} = this.props;
+f.propTypes检查（从prop-types导入）：Counter.PropTypes = { caption: PropTypes.string.isRequired };
