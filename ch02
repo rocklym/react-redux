@@ -7,8 +7,10 @@ a.关于写不写分号:只有下一行为括号，方括号，正则开头的�
 b.gulp: 基于node.js的一个前端自动化构建工具，开发这可以使用它构建自动化工作流程（前端集成开发环境）,如创建package.json文件
 c.webpack：模块打包机；分析你的项目结构，找到JavaScript模块以及其它浏览器不能直接运行的拓展语言（如TypeScript），并将其打包为合适的格式以供浏览器使用。
 d.babel: 把各种javascript千奇百怪的语言标准（ES5,ES6）统统专为浏览器可以认识的语言
+e.父组件： render给儿子的，这叫奉献
 
 
 3、React组件的数据
 ### prop: 对外接口
 a.当prop的类型不是string时，在JSX中必须用{}把prop值包住， 如 <SampleButton id="sample" borderWidth={2} onClick={onButtonClick} sytle={{color: "red"}}
+b.函数类型的prop等于父组件（import子组件的组件）交给了子组件一个回调函数，子组件在恰当的时机调用函数类型的prop；可以当上必要的参数，这样就可以反过来把info传递给外部世界
