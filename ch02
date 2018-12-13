@@ -11,10 +11,12 @@ e.父组件： render给儿子的，这叫奉献
 
 
 3、React组件的数据
-### prop: 对外接口
+### prop: 对外接口（不可改变）
 a.当prop的类型不是string时，在JSX中必须用{}把prop值包住， 如 <SampleButton id="sample" borderWidth={2} onClick={onButtonClick} sytle={{color: "red"}}
 b.函数类型的prop等于父组件（import子组件的组件）交给了子组件一个回调函数，子组件在恰当的时机调用函数类型的prop；可以当上必要的参数，这样就可以反过来把info传递给外部世界（父组件）
 c.子组件在constructor中一定要super（props）来调用父类React.Component的构造函数，不然类实例的所有成员函数就无法通过this.props访问父组件传递过来的props值
 d.ES6方法创造的React组件类不会自动绑定this到当前实例对象，需手动 this.onClickIncrementButton = this.onClickIncrementButton.bind(this);
 e.析构赋值（destructuring assignment）: const {caption} = this.props;
 f.propTypes检查（从prop-types导入）：Counter.PropTypes = { caption: PropTypes.string.isRequired };
+### state: 对内接口（让组件来改变）
+a.修改state的值用setState()函数，而不能直接修改，因为直接修改this.state的值，组件不会重新渲染，如this.setState({ count: this.state.count + 1 })
