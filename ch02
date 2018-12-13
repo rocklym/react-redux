@@ -20,3 +20,14 @@ e.析构赋值（destructuring assignment）: const {caption} = this.props;
 f.propTypes检查（从prop-types导入）：Counter.PropTypes = { caption: PropTypes.string.isRequired };
 ### state: 对内接口（让组件来改变）
 a.修改state的值用setState()函数，而不能直接修改，因为直接修改this.state的值，组件不会重新渲染，如this.setState({ count: this.state.count + 1 })
+
+
+
+4、组件的生命周期
+A.装载（mount）
+a.constructor
+b.getInitialState
+c.getDefaultProps
+d.componentWillMount
+e.render
+f.componentDidMount
