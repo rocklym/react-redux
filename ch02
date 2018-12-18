@@ -41,6 +41,8 @@ e.componentDidMount
 # 只能在浏览器被调用
 
 B.更新(update)
-a.componentWillReceiveProps
+a.componentWillReceiveProps(nextProps)
 # 父组件的render函数被调用，不管props有没有改变，都会触发字组件的componentWillReceiveProps函数
 # this.setState方法触发的更新过程不会调用这个函数，因为根据props变化更新state用的就是方法，如果调用就死循环了
+b.shouldComponentUpdate(nextProps, nextState)
+# 和render是唯二两个要求去有返回结果的函数，render返回结果用于
