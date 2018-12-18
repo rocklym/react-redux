@@ -39,3 +39,8 @@ e.render
 e.componentDidMount
 # 不是被立刻调用，而是在render函数返回的熟悉已经引发了渲染，组件已经被mount大DOM树上后才被调用；即调用所有render，装载，调用DidMount
 # 只能在浏览器被调用
+
+B.更新(update)
+a.componentWillReceiveProps
+# 父组件的render函数被调用，不管props有没有改变，都会触发字组件的componentWillReceiveProps函数
+# this.setState方法触发的更新过程不会调用这个函数，因为根据props变化更新state用的就是方法，如果调用就死循环了
