@@ -29,3 +29,4 @@ e.Flux的dispatcher关联的register函数，在任何action被派发时都会�
 
 4.View
 a.View本身是一个独立的部分，可以用任意一种UI库来实现，只是推荐一起用React搞定
+b.组件state初始化的来源不再是prop，而是Flux的Store
