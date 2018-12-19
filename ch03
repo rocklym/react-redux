@@ -2,15 +2,14 @@
 Flux框架
 ########################################### 
 1.Action->Dispatcher->Store->View--->Dispatcher
-
 2.Dispatcher自始至终只需要暴露一个函数Dispatch，增加新功能只是增加Action
-
 3.安装： npm install --save flux
 
-4.Dispatcher  
+
+1.Dispatcher  
 a.引入flux中的Dispatcher类，创造一个新的对象然后export，如export default new Dispatcher();
 
-5.action
+2.action
 a.定义action类型， 如export const INCREMENT = 'increment';
 b.定义action的构造函数
 export const increment = (counterCaption) => {
@@ -21,8 +20,11 @@ export const increment = (counterCaption) => {
 };
 c.action对象中必须由type字段，类型是string，用于表明action对象的类型；也可以包含其他字段，如caption之类
 
-6.Store
+3.Store
 a.用消息的方式建立Store和View的联系，Object.assign扩展EventEmitter.prototype，用emitChange，addChangeListener，removeChangeListener封装emit，on，removeListener，来完成对状态的更新的广播，添加监听和删除监听
 b.store使用AppDispatcher的register函数注册到全局唯一的Dispatcher上，返回一个token，用于store间的同步;resiger本质是dispatch的回调函数，来响应分发
 c.SummaryStore不存储数据，每次通过getSummary直接从CounterStore获取数据并计
 d.为了保证回调register的响应顺序正确，在SummaryStore中的register中AppDispatcher.waitFor([CounterStore.dispatchToken])，waitFor中回调函数执行结束   后才能继续
+e.Flux的dispatcher关联的register函数，在任何action被派发时都会被调用，不能指定action类型
+
+4.View
