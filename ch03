@@ -1,0 +1,4 @@
+# Flux框架
+1.Action->Dispatcher->Store->View--->Dispatcher
+2.Dispatcher自始至终只需要暴露一个函数Dispatch，增加新功能只是增加Action
+3.安装： npm install --save flux
