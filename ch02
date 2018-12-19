@@ -46,3 +46,12 @@ a.componentWillReceiveProps(nextProps)
 # this.setState方法触发的更新过程不会调用这个函数，因为根据props变化更新state用的就是方法，如果调用就死循环了
 b.shouldComponentUpdate(nextProps, nextState)
 # 和render是唯二两个要求去有返回结果的函数，render返回结果用于构造DOM对象，而shouldComponentUpdate返回一个布尔值，标识是否需要更新
+c.componentWillUpdate
+d.render
+e.componentDidUpdate
+# 无论更新过程发生爱服务器端还是浏览器端，都会被调用
+
+C.卸载（unmount）
+a.componentWillUnmount
+# 就这一个函数，没有配对的Did函数
+# 往往和componentDidMount有关，如果用非React方法创造了一些DOM元素，需要在componentWillUnmount清理掉
