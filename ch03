@@ -24,3 +24,5 @@ c.action对象中必须由type字段，类型是string，用于表明action对�
 6.Store
 a.用消息的方式建立Store和View的联系，Object.assign扩展EventEmitter.prototype，用emitChange，addChangeListener，removeChangeListener封装emit，on，removeListener，来完成对状态的更新的广播，添加监听和删除监听
 b.store使用AppDispatcher的register函数注册到全局唯一的Dispatcher上，返回一个token，用于store间的同步;resiger本质是dispatch的回调函数，来响应分发
+c.SummaryStore不存储数据，每次通过getSummary直接从CounterStore获取数据并计
+d.为了保证回调register的响应顺序正确，在SummaryStore中的register中AppDispatcher.waitFor([CounterStore.dispatchToken])，waitFor中回调函数执行结束   后才能继续
