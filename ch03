@@ -47,13 +47,34 @@ Redux框架
 a.Reducer，Redux=Reducer+Flux
 b.reducer(state, action)
 
-
+# 纯redux版本
 1.action构造函数都返回一个action对象，而不是通过调用Dispatcher的dispatch函数派发出去
 2.store中使用扩展操作符（...），把state字段扩展开，并对counterCaption赋新值，下面两种写法等价
+################################################
 return { ...state, [couterCaption]: state[couterCaption] + 1 };
 
 const newState = Object.assign({}, state);
 newState[counterCaption] ++;
 return newState;
+################################################
+绝对不能直接修改state
+3.通过store.getState()就能获取到store上存储的所有状态，如store.getState()[this.props.caption]
+4.componentDidMount和componentWillUnmount函数中，对应的store.subscribe(this.onChange)和store.unsubscribe(this.onChange)
+
+
+# redux with smart&dumb
+1.容器组件：负责与redux Store打交道，外层，聪明，用props与傻瓜通信，负责传props给展示组件
+2.展示组件：只负责渲染页面，内层，傻瓜，不需要有状态state了，只有一个render
+
+
+# redux with context
+1.每个React组件的props中都有一个特殊属性children，代表子组件，比如Provider中this.props.children就是如下的<ControlPanel />
+<Provider>
+  <ControlPanel />
+</Provider>
+2.Provider中提供一个函数getChildContext，返回store，要求使用者通过prop传递进来
+3.Provider需要定义类的Provider.childContextTypes，必须和getChildContext对应
+
+
 
 
