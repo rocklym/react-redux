@@ -72,9 +72,14 @@ return newState;
 <Provider>
   <ControlPanel />
 </Provider>
-2.Provider中提供一个函数getChildContext，返回store，要求使用者通过prop传递进来
+2.Provider中提供一个函数getChildContext，返回store，要求使用者通过prop传递进来，并在定义childContextTypes
+Provider.childContextTypes = {
+    store: PropTypes.object
+};
 3.Provider需要定义类的Provider.childContextTypes，必须和getChildContext对应
-
-
+4.组件容器除了props外，还需要context参数，通过this.context.store来获取store对象，而不再直接导入store，并接受contextTypes
+CounterContainer.contextTypes = {
+    store: PropTypes.object
+};
 
 
