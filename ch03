@@ -82,4 +82,7 @@ CounterContainer.contextTypes = {
     store: PropTypes.object
 };
 
-
+# react-redux
+1.无需自己实现Provider，直接导入import {Provider} from 'react-redux';
+2.简化傻瓜函数，function Counter({caption, onIncrement, onDecrement, value}) {}
+3.分别写mapStateToProps和mapDispatchToProps,导出时export default connect(mapStateToProps, mapDispatchToProps)(Counter);
