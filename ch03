@@ -91,6 +91,11 @@ CounterContainer.contextTypes = {
 4.分别写mapStateToProps和mapDispatchToProps（就是组件容器应该做的两件事）,导出时export default connect(mapStateToProps, mapDispatchToProps)(Counter)，这里有两次函数执行，最后产生的就是容器组件
 5.react-redux的Provider要求store不光是一个object，而且必须是包含subscribe，dispatch和getState三个函数的object
 6.react-redux定义了Provider的componentWillReceiveProps函数，在React组件的生命周期中，该函数在每次重新渲染时都会被调用到，会检查这一次时代表store的prop和上一次的是否一样，不一样就告警，为了避免多次渲染用了不同的Redux Store（必须唯一）。
-
+7.简单概括
+a.Provider保存唯一的store，prop是一个包括subscribe，dispatch和getState三个函数的object
+b.store由createStore(reducer, initValues)生成
+c.reducer是一个根据不同action返回新的state的函数（state，action）
+d.组件容器由export default connect(mapStateToProps, mapDispatchToProps)(Counter)默认导出
+mapStateToProps(state, ownProps)返回的prop + mapDispatchToProps(dispatch, ownProps)返回的prop + 传入prop = 展示容器的接收的prop
 
 
