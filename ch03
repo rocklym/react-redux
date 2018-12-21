@@ -63,7 +63,9 @@ return newState;
 
 
 # redux with smart&dumb
-1.容器组件：负责与redux Store打交道，外层，聪明，用props与傻瓜通信，负责传props给展示组件
+1.容器组件：
+a.负责与redux Store打交道，外层，聪明，
+b.用props与傻瓜通信，负责传props给展示组件
 2.展示组件：只负责渲染页面，内层，傻瓜，不需要有状态state了，只有一个render
 
 
@@ -85,4 +87,10 @@ CounterContainer.contextTypes = {
 # react-redux
 1.无需自己实现Provider，直接导入import {Provider} from 'react-redux';
 2.简化傻瓜函数，function Counter({caption, onIncrement, onDecrement, value}) {}
-3.分别写mapStateToProps和mapDispatchToProps,导出时export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+3.没有了CounterContainer类，直接默认export
+4.分别写mapStateToProps和mapDispatchToProps（就是组件容器应该做的两件事）,导出时export default connect(mapStateToProps, mapDispatchToProps)(Counter)，这里有两次函数执行，最后产生的就是容器组件
+5.react-redux的Provider要求store不光是一个object，而且必须是包含subscribe，dispatch和getState三个函数的object
+6.react-redux定义了Provider的componentWillReceiveProps函数，在React组件的生命周期中，该函数在每次重新渲染时都会被调用到，会检查这一次时代表store的prop和上一次的是否一样，不一样就告警，为了避免多次渲染用了不同的Redux Store（必须唯一）。
+
+
+
