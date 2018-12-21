@@ -1,7 +1,7 @@
 ########################################### 
 Flux框架
 ########################################### 
-1.Action->Dispatcher->Store->View--->Dispatcher
+1.Action->Dispatcher->Store->View--->Action->Dispatcher
 2.Dispatcher自始至终只需要暴露一个函数Dispatch，增加新功能只是增加Action
 3.安装： npm install --save flux
 4.Flux的优势： 单向数据流，store中只有get方法，没有set方法，要改变界面，必须改变store状态，必须通过派发一个action对象实现
