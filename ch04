@@ -1,6 +1,7 @@
 # Tips
 1.对于只return一个对象的函数体，ES6允许简写省去return，直接用（）把返回的对象包起来
 2.返回一个增加了对象的数组，return [ newObject, ...state ]
+3.ref属性：当一个包含ref属性的组件mount时，会检查ref属性是不是衣蛾函数，如果是就调用这个函数，参数就是这个组件代表的DOM元素（不是virtual DOM）
 
 
 # 应用架构
